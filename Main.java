@@ -12,7 +12,7 @@ public class Main
         HashMap<String, int[]> arrays = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
-        arrays.put("array1", new int[len]);
+        arrays.put("array", new int[len]);
 
         while (true)
         {
@@ -24,23 +24,102 @@ public class Main
             }
             String[] parts = input.split(" ");
             String command = parts[0];
-            if (parts.length > 1)
-            {
-                int Arg1 = Integer.parseInt(parts[1]);
-            }
+            
             try
             {
                 switch(command)
                 {
                     case "fillArray":
-                    case "printArray":
-                    case "searchArray":
-                    case "isSorted":
-                    case "shuffleArray":
-                    case "selectionSort":
-                    case "randomSort":
+                    String arrayName = parts[1];
+                    int[] array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        fillArray(array);
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
 
-                        break;
+                    case "printArray":
+                    arrayName = parts[1];
+                    array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        printArray(array);
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
+
+                    case "searchArray":
+                    arrayName = parts[1];
+                    int searchValue = Integer.parseInt(parts[2]);
+                    array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        binarySearch(array, searchValue);
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
+
+                    case "isSorted":
+                    arrayName = parts[1];
+                    array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        System.out.println(isSorted(array));
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
+
+                    case "shuffleArray":
+                    arrayName = parts[1];
+                    array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        shuffleArray(array);
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
+
+                    case "selectionSort":
+                    arrayName = parts[1];
+                    array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        selectionSort(array);
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
+
+                    case "randomSort":
+                    arrayName = parts[1];
+                    array = arrays.get(arrayName);
+                    if (array != null)
+                    {
+                        randomSort(array);
+                    }
+                    else
+                    {
+                        System.out.println("Array not found");
+                    }
+                    break;
                     default:
                     System.out.println("Enter a valid command");
                 }
