@@ -12,8 +12,6 @@ public class Main
         HashMap<String, int[]> arrays = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
-        arrays.put("array", new int[len]);
-
         while (true)
         {
             System.out.print("> ");
@@ -29,7 +27,7 @@ public class Main
             {
                 switch(command)
                 {
-                    case "fillArray":
+                    case "fill":
                     String arrayName = parts[1];
                     int[] array = arrays.get(arrayName);
                     if (array != null)
@@ -42,7 +40,7 @@ public class Main
                     }
                     break;
 
-                    case "printArray":
+                    case "print":
                     arrayName = parts[1];
                     array = arrays.get(arrayName);
                     if (array != null)
@@ -55,7 +53,7 @@ public class Main
                     }
                     break;
 
-                    case "searchArray":
+                    case "search":
                     arrayName = parts[1];
                     int searchValue = Integer.parseInt(parts[2]);
                     array = arrays.get(arrayName);
@@ -82,7 +80,7 @@ public class Main
                     }
                     break;
 
-                    case "shuffleArray":
+                    case "shuffle":
                     arrayName = parts[1];
                     array = arrays.get(arrayName);
                     if (array != null)
@@ -95,7 +93,7 @@ public class Main
                     }
                     break;
 
-                    case "selectionSort":
+                    case "sort":
                     arrayName = parts[1];
                     array = arrays.get(arrayName);
                     if (array != null)
@@ -120,10 +118,18 @@ public class Main
                         System.out.println("Array not found");
                     }
                     break;
+
+                    case "length":
+                    len = Integer.parseInt(parts[1]);
+                    break;
+
+                    case "newArray":
+                    arrays.put(parts[1], new int[Integer.parseInt(parts[2])]);
+                    break;
                     
                     //Errors
                     default:
-                    System.out.println("Enter a valid command");
+                    System.out.println("Unknown command: " + parts[0]);
                 }
 
             }
