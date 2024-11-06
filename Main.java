@@ -120,6 +120,8 @@ public class Main
                         System.out.println("Array not found");
                     }
                     break;
+                    
+                    //Errors
                     default:
                     System.out.println("Enter a valid command");
                 }
@@ -247,7 +249,6 @@ public class Main
         while (!isSorted(array))
         {
             shuffleArray(array);
-            // System.out.print("\rShuffles: " + shuffles);
         }
         System.out.print("\r");
     }
