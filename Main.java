@@ -126,6 +126,10 @@ public class Main
                     case "newArray":
                     arrays.put(parts[1], new int[Integer.parseInt(parts[2])]);
                     break;
+
+                    case "remove":
+                    arrays.remove(parts[1]);
+                    break;
                     
                     //Errors
                     default:
