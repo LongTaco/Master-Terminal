@@ -9,49 +9,45 @@ public class Main
 
     public static void main(String[] args)
     {
-        int[] array = new int[len];
+        HashMap<String, int[]> arrays = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
+
+        arrays.put("array1", new int[len]);
 
         while (true)
         {
             System.out.print("> ");
             String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("exit"))
+            if (input.equalsIgnoreCase("exit")||input.equalsIgnoreCase("quit"))
             {
                 break;
             }
             String[] parts = input.split(" ");
             String command = parts[0];
-
+            if (parts.length > 1)
+            {
+                int Arg1 = Integer.parseInt(parts[1]);
+            }
             try
             {
                 switch(command)
                 {
-                    case "sort":
-                    System.out.println("Which method would you like to use to sort?");
-                    String method = scanner.nextLine();
-                    switch(method)
-                    {
-                        case "selection":
-                        System.out.println("Which array would you like to sort?");
-                         
-                        case "random":
+                    case "fillArray":
+                    case "printArray":
+                    case "searchArray":
+                    case "isSorted":
+                    case "shuffleArray":
+                    case "selectionSort":
+                    case "randomSort":
 
-                    }
-
-                    case "search":
-                    System.out.println("What would you like to search for?");
-
-                    case "print":
+                        break;
+                    default:
+                    System.out.println("Enter a valid command");
                 }
+
             }
-            catch (Exception e)
-            {
-                System.out.println("Please enter a valid command.");
+            catch (Exception e){
             }
-
-
-
         }
         scanner.close();
     }
