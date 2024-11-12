@@ -1,4 +1,6 @@
 import java.util.*;
+import javax.swing.*;
+
 
 public class Main
 {
@@ -33,6 +35,7 @@ public class Main
                     if (array != null)
                     {
                         fillArray(array);
+                        printArray(array);
                     }
                     else
                     {
@@ -130,10 +133,20 @@ public class Main
                     case "remove":
                     arrays.remove(parts[1]);
                     break;
+
+                    case "window":
+                    String name = parts[1];
+                    JFrame frame = new JFrame(name);
+                    frame.setSize(300, 300);
+                    frame.setLocationRelativeTo(null);  
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+                    frame.setVisible(true);
+                    break;
                     
                     //Errors
                     default:
                     System.out.println("Unknown command: " + parts[0]);
+                    break;
                 }
 
             }
