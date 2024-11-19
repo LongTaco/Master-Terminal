@@ -136,11 +136,13 @@ public class Main
 
                     case "window":
                     String name = parts[1];
-                    JFrame frame = new JFrame(name);
-                    frame.setSize(300, 300);
-                    frame.setLocationRelativeTo(null);  
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-                    frame.setVisible(true);
+                    SwingUtilities.invokeLater(() -> {
+                        JFrame frame = new JFrame(name);
+                        frame.setSize(300, 300);
+                        frame.setLocationRelativeTo(null);  
+                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  
+                        frame.setVisible(true);
+                    });
                     break;
                     
                     //Errors
